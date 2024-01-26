@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: trainer-service-simclr-pretrain
+spec:
+  ports:
+    - name: http-trainer-simclr-pretrain
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: training-simclr-pretrain-stcngurs
+  sessionAffinity: None
+  type: ClusterIP
+

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-service-a3c
+spec:
+  ports:
+    - name: http-agent
+      port: 8090
+      protocol: TCP
+      targetPort: 8090
+  selector:
+    app.kubernetes.io/name: training-a3c-stcngurs
+  sessionAffinity: None
+  type: ClusterIP
+

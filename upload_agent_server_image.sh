@@ -1,0 +1,1 @@
+docker-compose -f docker-compose-agent.yml build && docker tag self-supervised-rl-minecraft-agent immortex/self-supervised-rl-minecraft:agent && docker push immortex/self-supervised-rl-minecraft:agent

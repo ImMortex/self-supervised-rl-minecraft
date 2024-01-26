@@ -1,0 +1,34 @@
+{
+    "action": {
+        "_id": 78,
+        "attack": true,
+        "back": false,
+        "camera": [
+            0,
+            0
+        ],
+        "forward": true,
+        "inventory": false,
+        "jump": false,
+        "left": false,
+        "right": false,
+        "sneak": false,
+        "sprint": false,
+        "toolbar": 0,
+        "use": false
+    },
+    "action_id": 78,
+    "reward": -0.08600000000000001,
+    "state": {
+        "experience": 0.2841225626740947,
+        "health": 20,
+        "hunger": 20,
+        "inventory": {},
+        "inventory_open": false,
+        "level": 0,
+        "view": null
+    },
+    "t": 86,
+    "terminal_state": "TerminalState.NONE",
+    "timestamp": 1693062983.0931664
+}

@@ -1,0 +1,50 @@
+FROM nvidia/cuda:11.6.2-runtime-ubuntu20.04
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update
+RUN apt-get install --no-install-recommends --no-install-suggests -y curl
+RUN apt-get install unzip
+RUN apt-get -y install python3 python3-pip
+
+
+
+# all below copied files will be inside dir /app
+WORKDIR /app
+
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+
+# install python requirements inside docker image
+COPY requirements.txt requirements.txt
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
+
+ARG CACHEBUST="$(date)"
+RUN mkdir -p ./tmp
+RUN mkdir -p ./wandb
+
+# copy all needed src files, configs and documentation to the docker image (no test files)
+COPY ./agent_server.py ./agent_server.py
+COPY ./net_trainer_server.py ./net_trainer_server.py
+COPY ./README.md ./README.md
+COPY ./.env-example ./.env-example
+COPY ./config ./config
+COPY ./src/agent ./src/agent
+COPY ./agent_assets ./agent_assets
+COPY ./agentObservationTestInput ./agentObservationTestInput
+COPY ./src/common ./src/common
+COPY ./src/dataloader ./src/dataloader
+COPY ./src/a3c ./src/a3c
+COPY ./src/swin_unetr ./src/swin_unetr
+COPY ./src/trainers ./src/trainers
+COPY ./pretrainedModels/icon_classifier ./pretrainedModels/icon_classifier
+COPY ./pretrainedModels/pretrained_vit_depth1 ./pretrainedModels/pretrained_vit_depth1
+COPY ./pretrainedModels/pretrained_vit_depth2 ./pretrainedModels/pretrained_vit_depth2
+COPY ./pretrainedModels/pretrained_vit_depth4 ./pretrainedModels/pretrained_vit_depth4
+COPY ./pretrainedModels/resnet18_out128 ./pretrainedModels/resnet18_out128
+COPY ./pretrainedModels/resnet152_out128 ./pretrainedModels/resnet152_out128
+ARG CACHEBUST
+
+# publish inner port
+EXPOSE 8090
+
+CMD ["python3", "-u", "agent_server.py"]

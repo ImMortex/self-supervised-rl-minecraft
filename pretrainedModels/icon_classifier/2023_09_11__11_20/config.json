@@ -1,0 +1,11 @@
+{
+    "batch_size": 32,
+    "black_out_item_amount": true,
+    "channels": 3,
+    "epochs": 200,
+    "height": 224,
+    "init_lr": 0.001,
+    "model": "resnet18",
+    "resize_interpolation": "INTER_AREA",
+    "width": 224
+}

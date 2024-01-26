@@ -1,0 +1,18 @@
+version: "3.5"
+
+services:
+
+  trainer:
+    container_name: trainer
+    build: .
+    expose:
+      - "8080"
+    networks:
+      - trainers
+    env_file:
+      - .env
+
+networks:
+  trainers:
+    name: trainers
+    external: false

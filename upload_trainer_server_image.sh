@@ -1,0 +1,1 @@
+docker-compose build && docker tag self-supervised-rl-minecraft-trainer immortex/self-supervised-rl-minecraft:trainer && docker push immortex/self-supervised-rl-minecraft:trainer

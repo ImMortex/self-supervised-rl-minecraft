@@ -1,0 +1,1 @@
+Checkpoint https://wandb.ai/stcngurs/simclr-pretrain/artifacts/model/checkpoint_simclr-pretrain_2023_12_19__17_41_39_11/v0/files

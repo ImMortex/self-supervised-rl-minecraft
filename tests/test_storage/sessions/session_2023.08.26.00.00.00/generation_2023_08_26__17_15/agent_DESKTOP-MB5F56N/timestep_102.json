@@ -1,0 +1,41 @@
+{
+    "action": {
+        "_id": 187,
+        "attack": false,
+        "back": false,
+        "camera": [
+            -5,
+            -1
+        ],
+        "forward": true,
+        "inventory": false,
+        "jump": false,
+        "left": false,
+        "right": false,
+        "sneak": false,
+        "sprint": false,
+        "toolbar": 0,
+        "use": false
+    },
+    "action_id": 187,
+    "reward": -0.10200000000000001,
+    "state": {
+        "experience": 0.2841225626740947,
+        "health": 20,
+        "hunger": 20,
+        "inventory": {
+            "dirt": {
+                "amount": 2
+            },
+            "oak_sapling": {
+                "amount": 2
+            }
+        },
+        "inventory_open": true,
+        "level": 0,
+        "view": null
+    },
+    "t": 102,
+    "terminal_state": "TerminalState.NONE",
+    "timestamp": 1693062986.8318126
+}

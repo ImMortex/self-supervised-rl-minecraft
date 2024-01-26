@@ -1,0 +1,30 @@
+{
+    "0": {
+        "forward": true,
+        "_id": 0
+    },
+    "1": {
+        "forward": true,
+        "jump": true,
+        "_id": 1
+    },
+    "2": {
+        "attack": true,
+        "_id": 2
+    },
+    "3": {
+        "camera": [
+            10,
+            0
+        ],
+        "_id": 3
+    },
+    "4": {
+        "camera": [
+            -10,
+            0
+        ],
+        "_id": 4
+    }
+
+}

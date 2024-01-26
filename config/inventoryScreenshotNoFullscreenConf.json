@@ -1,0 +1,39 @@
+{
+  "top_left_corner_inventory_with_recipes_static": [
+    916,
+    193
+  ],
+  "top_left_corner_inventory_static": [
+    608,
+    193
+  ],
+  "row1_first_slot_offset_from_inventory_corner": [
+    32,
+    353
+  ],
+  "slot_width": 63,
+  "slot_height": 65,
+  "slot_distance_x": 72,
+  "slot_distance_y": 82,
+  "row_1_offset": 354,
+  "row_2_offset": 431,
+  "row_3_offset": 508,
+  "toolbar_offset": 602,
+  "slot_number_indicator_offset_x": 15,
+  "slot_number_indicator_offset_y": 38,
+  "slot_number_indicator_width": 48,
+  "slot_number_indicator_height": 29,
+  "recipe_book_icon_top_left": [
+    1024,
+    448
+  ],
+  "recipe_book_icon_bottom_right": [
+    1104,
+    524
+  ],
+  "toolbar_first_slot_x": 608,
+  "toolbar_first_slot_y": 1008,
+  "toolbar_slot_distance_x": 80,
+  "toolbar_slot_width": 63,
+  "toolbar_slot_height": 65
+}

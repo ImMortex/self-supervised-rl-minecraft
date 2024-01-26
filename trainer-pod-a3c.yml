@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stcngurs-a3c-global-net
+  namespace: stable-gym
+  labels:
+    app.kubernetes.io/name: training-a3c-stcngurs
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                  #- acds-gpu-01
+                  - ki-srv01
+                  #- ki-srv02
+                  #- ki-srv03
+  containers:
+    - image: immortex/self-supervised-rl-minecraft:trainer
+      name: trainer
+      imagePullPolicy: Always
+      resources:
+        requests:
+          nvidia.com/gpu: "1"
+          cpu: "32"
+          memory: "128Gi"
+        limits:
+          nvidia.com/gpu: "1"
+          cpu: "32"
+          memory: "128Gi"
+
+      ports:
+        - containerPort: 8080
+          name: http-trainer
+
+      volumeMounts:
+        - name: pvc-stable-gym-wandb
+          mountPath: "/app/wandb_tmp"
+        - name: config-dir
+          mountPath: "/app/used-config"
+        - name: tmp-dir
+          mountPath: "/app/tmp"
+      envFrom:
+        - secretRef:
+            name: stcngurs-http-auth
+        - secretRef:
+            name: stcngurs-minio-auth
+        - secretRef:
+            name: stcngurs-wandb-auth
+        - secretRef:
+            name: stcngurs-a3c-env
+        - secretRef:
+            name: stcngurs-hyperparameters-env
+        - secretRef:
+            name: stcngurs-wandb-tmp-online
+
+  volumes:
+    - name: config-dir
+    - name: tmp-dir
+    - name: pvc-stable-gym-wandb
+      #persistentVolumeClaim:
+      #  claimName: pvc-stable-gym-wandb
+
+  restartPolicy: Never
